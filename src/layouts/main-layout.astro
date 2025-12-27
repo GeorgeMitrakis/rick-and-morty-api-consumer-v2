@@ -1,12 +1,7 @@
-<div class="main-layout">
+---
+import Layout from "./layout.astro";
+---
+
+<Layout {...Astro.props} maxWidth="1056px">
     <slot />
-</div>
-<style>
-    .main-layout {
-        max-width: 1056px;
-        padding-left: 16px;
-        padding-right: 16px;
-        display: flow-root;
-        margin: 0 auto;
-    }
-</style>
+</Layout>

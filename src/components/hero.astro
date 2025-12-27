@@ -1,5 +1,25 @@
 ---
 import MainLayout from "../layouts/main-layout.astro";
+import HeroBackground from "../../assets/pickle-rick.svg";
+// import { getImage } from 'astro:assets'
+
+// const heroBg = `url(${(await getImage({ src: HeroBackground })).src})`;
 ---
 
-<MainLayout> Hero! </MainLayout>
+<MainLayout class="hero">
+    <h1>Is this the first part of some magic trick?</h1>
+    <q class="pickle-rick-quote" cite="https://www.imdb.com/title/tt5218268/quotes/#:~:text=Uh%2C%20here%27s%20something%20that%27s%20never%20happened%20before...%20I%27M%20A%20PICKLE!"
+    >Uh, here's something that's never happened before: I'm a pickle!</q>
+</MainLayout>
+
+<style>
+    .hero {
+        height: 320px;
+        /*background-image: var(--heroBg);*/
+    }
+
+    h1, .pickle-rick-quote {
+        display: block;
+        text-align: center;
+    }
+</style>

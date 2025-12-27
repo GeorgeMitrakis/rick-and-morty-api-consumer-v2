@@ -1,5 +1,32 @@
 ---
 import HeaderLayout from "../layouts/header-layout.astro";
+import Logo from "../../assets/rick-face.svg";
 ---
 
-<HeaderLayout> Header! </HeaderLayout>
+<HeaderLayout class="header">
+    <a href="/"  class="logo" >
+        <Logo/>
+    </a>
+</HeaderLayout>
+
+<style>
+    .header {
+        width: 100%;
+        padding: 0;
+        display: flex;
+    }
+
+    .logo {
+        padding: 8px;
+        border-radius: 2px;
+    }
+
+    .logo svg {
+        width: auto;
+        height: 48px;
+    }
+
+    .logo:hover {
+        box-shadow: inset 0 0 10px 1px lime;
+    }
+</style>

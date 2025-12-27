@@ -11,9 +11,18 @@ import Hero from "../components/hero.astro";
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>Astro</title>
+
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                margin: 0;
+            }
+
+        </style>
     </head>
     <body>
-        <h1>Astro</h1>
         <Header />
         <Hero />
         <Content />

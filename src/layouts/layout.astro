@@ -1,0 +1,16 @@
+---
+const { maxWidth, class: className, ...rest } = Astro.props;
+---
+
+<div class={'layout ' + (className || '')} {...rest}>
+    <slot />
+</div>
+<style define:vars={{ maxWidth }}>
+    .layout {
+        max-width: var(--maxWidth, 1056px);
+        padding-left: 16px;
+        padding-right: 16px;
+        display: flow-root;
+        margin: 0 auto;
+    }
+</style>
