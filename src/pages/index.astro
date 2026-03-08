@@ -2,6 +2,9 @@
 import Content from "../components/content.astro";
 import Header from "../components/header.astro";
 import Hero from "../components/hero.astro";
+import Layout from "../layouts/layout.astro";
+
+import favicon from "../../assets/rick-face.svg";
 ---
 
 <html lang="en">
@@ -10,6 +13,7 @@ import Hero from "../components/hero.astro";
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+        <link rel="icon" href=`${favicon.src}` />
         <title>Astro</title>
 
         <style>
@@ -19,12 +23,14 @@ import Hero from "../components/hero.astro";
                 position: relative;
                 margin: 0;
             }
-
         </style>
     </head>
     <body>
         <Header />
-        <Hero />
-        <Content />
+
+        <Layout paddingX="60px">
+            <Hero />
+            <Content />
+        </Layout>
     </body>
 </html>

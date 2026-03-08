@@ -1,19 +1,20 @@
 ---
-import HeaderLayout from "../layouts/header-layout.astro";
 import Logo from "../../assets/rick-face.svg";
 ---
 
-<HeaderLayout class="header">
-    <a href="/"  class="logo" >
-        <Logo/>
+<div class="header">
+    <a href="/" class="logo">
+        <Logo />
     </a>
-</HeaderLayout>
+</div>
 
 <style>
     .header {
         width: 100%;
         padding: 0;
         display: flex;
+        position: absolute;
+        top: 0;
     }
 
     .logo {
