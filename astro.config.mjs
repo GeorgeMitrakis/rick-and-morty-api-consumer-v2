@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 
 import netlify from "@astrojs/netlify";
 
@@ -7,4 +7,12 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   output: "server",
   adapter: netlify(),
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: "Space Grotesk",
+      cssVariable: "--font-space-grotesk",
+      display: "block",
+    },
+  ],
 });

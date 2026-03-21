@@ -2,11 +2,11 @@
 const { paddingX, class: className, ...rest } = Astro.props;
 ---
 
-<div class={"layout " + (className || "")} {...rest}>
+<div class={"container " + (className || "")} {...rest}>
     <slot />
 </div>
 <style define:vars={{ paddingX }}>
-    .layout {
+    .container {
         max-width: 1056px;
         padding-inline: var(--paddingX, 16px);
         display: flow-root;
