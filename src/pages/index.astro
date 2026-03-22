@@ -1,7 +1,7 @@
 ---
 import { Font } from "astro:assets";
 import Content from "../components/content.astro";
-import Header from "../components/header.astro";
+import Navbar from "../components/navbar.astro";
 import Hero from "../components/hero.astro";
 import Container from "../layouts/container.astro";
 
@@ -22,23 +22,33 @@ import favicon from "../../assets/rick-face.svg";
             html {
                 font-family: var(--font-space-grotesk);
             }
+
             body {
                 display: flex;
                 flex-direction: column;
                 position: relative;
                 margin: 0;
             }
+
+            .container {
+                max-width: 1056px;
+                padding-inline: var(--paddingX, 16px);
+                display: flow-root;
+                margin: 0 auto;
+            }
         </style>
     </head>
     <body>
-        <Header />
+        <Navbar />
 
-        <Container paddingX="60px">
-            <Hero />
-        </Container>
+        <main>
+            <section>
+                <Hero />
+            </section>
 
-        <Container>
-            <Content />
-        </Container>
+            <section>
+                <Content />
+            </section>
+        </main>
     </body>
 </html>

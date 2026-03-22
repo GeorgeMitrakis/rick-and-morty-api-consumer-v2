@@ -1,15 +1,19 @@
 ---
 import HeroBackground from "../../assets/pickle-rick.svg";
+import Container from "../layouts/container.astro";
 ---
 
-<div class="hero" style={`--bg-image: url('${HeroBackground.src}')`}>
+<Container
+    class="hero"
+    style={`--bg-image: url('${HeroBackground.src}, --paddingX: 48px')`}
+>
     <h1>Is this the first part of some magic trick?</h1>
     <q
         class="pickle-rick-quote"
         cite="https://www.imdb.com/title/tt5218268/quotes/#:~:text=Uh%2C%20here%27s%20something%20that%27s%20never%20happened%20before...%20I%27M%20A%20PICKLE!"
         >Uh, here's something that's never happened before: I'm a pickle!</q
     >
-</div>
+</Container>
 
 <style>
     .hero {

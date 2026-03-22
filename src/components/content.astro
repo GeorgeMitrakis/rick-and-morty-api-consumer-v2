@@ -1,10 +1,23 @@
 ---
-
+import Container from "../layouts/container.astro";
 ---
 
-<main>Content!</main>
+<div class="characters-section">
+    <Container class="characters-area"> Character list </Container>
+</div>
 <style>
-    main {
+    .characters-section {
         min-height: 636px;
+        background-image: url("/assets/characters-area-background.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-color: #03b0c8;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .characters-area {
+        padding-block: 16px;
     }
 </style>
