@@ -1,10 +1,11 @@
 ---
 import Container from "../layouts/container.astro";
+import CharacterGrid from "./character-grid.vue";
 ---
 
 <div class="characters-section">
-    <Container class="characters-area" data-characters-area>
-        Loading...
+    <Container class="characters-area" style="--maxWidth:1252px">
+        <CharacterGrid client:load />
     </Container>
 </div>
 <style>
@@ -21,41 +22,9 @@ import Container from "../layouts/container.astro";
 
     .characters-area {
         padding-block: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
     }
 </style>
-
-<script>
-    const URL = "https://rickandmortyapi.com/api";
-
-    try {
-        const response = await (await fetch(URL + "/character")).json();
-        const characters = response.results;
-
-        let currentCharacterIndex = 0;
-
-        const elementPreview = document.createElement("div");
-        elementPreview.innerText = JSON.stringify(
-            characters[currentCharacterIndex],
-        );
-
-        const nextBtn = document.createElement("button");
-        nextBtn.setAttribute("type", "button");
-        nextBtn.innerText = "Next ->";
-        nextBtn.addEventListener("click", function (event) {
-            currentCharacterIndex = (currentCharacterIndex + 1) % 20; // characters fetched
-            elementPreview.innerText = JSON.stringify(
-                characters[currentCharacterIndex],
-            );
-        });
-
-        const areaElem = document.querySelector("[data-characters-area]");
-
-        if (!areaElem) throw new Error("areaElem is undefined");
-
-        areaElem.innerHTML = "";
-        areaElem.append(elementPreview);
-        areaElem.append(nextBtn);
-    } catch (err) {
-        console.error(err);
-    }
-</script>

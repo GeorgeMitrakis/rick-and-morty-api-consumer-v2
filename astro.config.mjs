@@ -16,6 +16,7 @@ export default defineConfig({
       name: "Space Grotesk",
       cssVariable: "--font-space-grotesk",
       display: "block",
+      weights: ["300", "400", "700"],
     },
   ],
 
