@@ -9,23 +9,36 @@
     :species="character.species"
     :image="character.image"
   />
+
+  <button v-if="!loading && !allCharactersAreLoaded" @click="loadMoreCharacters()">
+    Load more
+  </button>
 </template>
 <script setup>
 import { computed, onMounted, ref } from "vue";
 import Character from "./character.vue";
 
-const characters = ref(null);
+const characters = ref([]);
+const nextPage = ref("https://rickandmortyapi.com/api/character");
 
 onMounted(async () => {
-  const URL = "https://rickandmortyapi.com/api";
+  await loadMoreCharacters();
+});
 
+const loading = computed(() => characters.value.length === 0);
+const allCharactersAreLoaded = computed(() => nextPage.value === null);
+
+async function loadMoreCharacters() {
+  if (!nextPage.value) {
+    alert("No more characters to load.");
+    return;
+  }
   try {
-    const response = await (await fetch(URL + "/character")).json();
-    characters.value = response.results;
+    const response = await (await fetch(nextPage.value)).json();
+    characters.value = [...characters.value, ...response.results];
+    nextPage.value = response.info?.next;
   } catch (err) {
     console.error(err);
   }
-});
-
-const loading = computed(() => characters.value === null);
+}
 </script>
