@@ -9,24 +9,17 @@
     "preview:build": "netlify build",
     "preview:serve": "netlify serve",
     "deploy": "netlify deploy",
-    "netlify:link": "netlify link",
-    "prepare": "vp config"
+    "netlify:link": "netlify link"
   },
   "dependencies": {
-    "@astrojs/netlify": "^7.0.4",
+    "@astrojs/netlify": "^7.0.6",
     "@astrojs/vue": "^6.0.1",
-    "astro": "^6.0.8",
-    "vue": "^3.5.30"
+    "astro": "^6.1.5",
+    "vue": "^3.5.32"
   },
   "devDependencies": {
-    "netlify-cli": "^23.15.1",
-    "vite-plus": "latest"
+    "esbuild": "^0.28.0",
+    "netlify-cli": "^23.15.1"
   },
-  "packageManager": "pnpm@10.32.1",
-  "pnpm": {
-    "overrides": {
-      "vite": "npm:@voidzero-dev/vite-plus-core@latest",
-      "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
-    }
-  }
+  "packageManager": "pnpm@10.33.0"
 }
