@@ -1,25 +1,85 @@
 ---
-import Logo from "../../assets/rick-face.svg";
+import Logo from "../../assets/rick-face-inherit-color.svg";
 ---
 
-<nav class="navbar">
-    <a href="/" class="logo">
-        <Logo />
-    </a>
-</nav>
+<div class="navbar">
+    <nav>
+        <a href="/" class="logo">
+            <Logo />
+        </a>
+    </nav>
+    <button
+        class="info-cta"
+        role="button"
+        data-info-cta
+        command="show-modal"
+        commandfor="project-info"
+    >
+        <span class="info-icon-wrapper">
+            <i class="fa-solid fa-circle-info"></i>
+        </span>
+    </button>
+</div>
+
+<dialog id="project-info">
+    <h2>Rick and Morty API Consumer v2</h2>
+    <hr />
+    <p>
+        A web app that consumes the <a
+            href="https://rickandmortyapi.com/"
+            target="_blank">Rick and Morty API</a
+        > and renders characters with their information.
+    </p>
+    <p>
+        Repo link: <a
+            href="https://github.com/GeorgeMitrakis/rick-and-morty-api-consumer-v2"
+            target="_blank">here</a
+        >
+    </p>
+    <p>
+        App author: <a
+            href="https://www.linkedin.com/in/george-mitrakis-867b74191/"
+            target="_blank">George Mitrakis</a
+        >
+    </p>
+    <p>
+        UX designer, requirements author: <a
+            href="https://www.linkedin.com/in/epaminondas-fakopoulos-751a03207/"
+            target="_blank">Nondas Fakopoulos</a
+        >
+    </p>
+    <hr />
+    <p>
+        This is a second implementation of the project. It was done to challenge
+        myself in utilizing the frontend knowledge and concepts I have acquired
+        since <a
+            href="https://rick-and-morty-api-consumer.web.app/"
+            target="_blank"
+        >
+            my first implementation</a
+        >, as well as getting more experience in <a
+            href="https://astro.build/"
+            target="_blank">astro</a
+        >.
+    </p>
+    <hr />
+    <button commandfor="project-info" command="close">Understood</button>
+</dialog>
 
 <style>
     .navbar {
-        width: 100%;
-        padding: 0;
+        padding-block: 0;
+        padding-inline: 16px;
         display: flex;
-        position: absolute;
-        top: 0;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .logo {
+        display: flex;
         padding: 8px;
         border-radius: 2px;
+        color: #25292b;
     }
 
     .logo svg {
@@ -28,6 +88,26 @@ import Logo from "../../assets/rick-face.svg";
     }
 
     .logo:hover {
-        box-shadow: inset 0 0 10px 1px lime;
+        box-shadow: inset 0 0 10px 1px darkgreen;
+        color: darkgreen;
+    }
+
+    .info-cta {
+        font-size: 24px;
+        color: darkgrey;
+        align-content: center;
+        flex-wrap: wrap;
+        cursor: pointer;
+        padding: 0;
+        border: none;
+        background: transparent;
+    }
+
+    .info-icon-wrapper {
+        display: flex;
+    }
+
+    .info-cta:hover {
+        color: darkgreen;
     }
 </style>
