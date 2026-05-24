@@ -58,16 +58,20 @@ const statusIcon = computed(() => {
 <style scoped>
 article {
     /*border: 2px solid var(--character-card-border, transparent);*/
-    box-shadow: 0 0 16px 1px var(--character-card-border);
+    box-shadow: 0 0 var(--character-card-shadow-blur, 4px) 1px
+        var(--character-card-border, darkgrey);
     border-radius: 4px;
     background-color: white;
     width: 230px;
-    min-height: 86px;
     max-height: 120px;
+    display: flex;
 
     @media (hover: hover) {
         &:hover {
             --character-card-border: darkgreen;
+            --character-card-shadow-blur: 16px;
+
+            background-color: #ddffdd;
         }
     }
 }
@@ -78,6 +82,7 @@ a {
     gap: 12px;
     color: #000000;
     text-decoration: none;
+    width: 100%;
 }
 
 img {
