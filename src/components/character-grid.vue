@@ -80,6 +80,12 @@ async function loadMoreCharacters() {
     margin-top: 16px;
     align-self: center;
     position: relative;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: lightgrey;
+        }
+    }
 }
 
 .load-more-btn-loader {

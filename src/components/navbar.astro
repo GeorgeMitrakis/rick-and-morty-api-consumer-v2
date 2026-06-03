@@ -12,8 +12,7 @@ import Logo from "../../assets/rick-face-inherit-color.svg";
         class="info-cta"
         role="button"
         data-info-cta
-        command="show-modal"
-        commandfor="project-info"
+        popovertarget="project-info"
     >
         <span class="info-icon-wrapper">
             <i class="fa-solid fa-circle-info"></i>
@@ -21,7 +20,7 @@ import Logo from "../../assets/rick-face-inherit-color.svg";
     </button>
 </div>
 
-<dialog id="project-info">
+<dialog id="project-info" class="project-info-dialog" popover>
     <h2>Rick and Morty API Consumer v2</h2>
     <hr />
     <p>
@@ -63,7 +62,9 @@ import Logo from "../../assets/rick-face-inherit-color.svg";
         >.
     </p>
     <hr />
-    <button commandfor="project-info" command="close">Understood</button>
+    <button popovertarget="project-info" popovertargetaction="hide">
+        Understood
+    </button>
 </dialog>
 
 <style>
@@ -109,5 +110,26 @@ import Logo from "../../assets/rick-face-inherit-color.svg";
 
     .info-cta:hover {
         color: darkgreen;
+    }
+
+    .project-info-dialog {
+        max-width: min(360px, calc(100vw - 32px));
+    }
+
+    dialog {
+        padding-inline: 16px;
+
+        h2 {
+            text-wrap-style: balance;
+            text-align: center;
+        }
+
+        &::backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    body:has(:popover-open) {
+        overflow: hidden;
     }
 </style>
