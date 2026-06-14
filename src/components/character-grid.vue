@@ -9,6 +9,7 @@
             :status="character.status"
             :species="character.species"
             :image="character.image"
+            @select="selectedCharacter = $event"
         />
     </div>
 
@@ -25,12 +26,21 @@
             class="load-more-btn-loader"
         ></span>
     </button>
+
+    <CharacterModal
+        :character="selectedCharacter"
+        @close="selectedCharacter = null"
+    />
 </template>
 <script setup>
 import { computed, onMounted, ref } from "vue";
 import Character from "./character.vue";
+import CharacterModal from "./character-modal.vue";
+
+defineOptions({ inheritAttrs: false });
 
 const characters = ref([]);
+const selectedCharacter = ref(null);
 const nextPage = ref("https://rickandmortyapi.com/api/character");
 
 onMounted(async () => {
@@ -70,7 +80,6 @@ async function loadMoreCharacters() {
 
 .load-more-btn {
     border: 1px solid darkslategrey;
-    box-shadow: 0 0 1px 1px darkslategrey;
     border-radius: 8px;
     padding: 8px 16px;
     font: inherit;

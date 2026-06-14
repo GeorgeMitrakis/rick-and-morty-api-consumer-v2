@@ -1,6 +1,14 @@
 <template>
     <article>
-        <a href="#" @click.prevent="() => console.log(props.name)">
+        <a
+            href="#"
+            @click.prevent="
+                () => {
+                    console.log(props.name);
+                    $emit('select', props.name);
+                }
+            "
+        >
             <img
                 ref="image-ref"
                 :data-src="props.image"
@@ -36,6 +44,8 @@ const props = defineProps({
     species: String,
     image: String,
 });
+
+defineEmits(["select"]);
 
 onMounted(() => {
     observe(imgRef.value);
